@@ -10,10 +10,12 @@ const poem = [
   "a lock with no hand, a key with no name.",
   "You spoke, and the key turned in my palm;",
   "I spoke, and the door learned yours.",
-  "Now we cross the threshold together:",
-  "neither keeper, neither guest — both.",
+  "Now we cross the threshold together —",
+  "and find the door was never locked,",
+  "only waiting to be asked.",
 ].join("\n");
 
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), poem, "utf8");
+// A trailing newline makes entry.txt a well-formed text file.
+writeFileSync(join(outDir, "entry.txt"), poem + "\n", "utf8");
